@@ -103,10 +103,14 @@ public class TypeConverter implements Plugin, PathwayElementMenuHook {
 				DataNodeToDataNode action5 = new DataNodeToDataNode((Graphics)e, DataNodeType.RNA);
 				refMenu.add(action5);
 			}
-			DataNodeToLabel action6 = new DataNodeToLabel((Graphics)e, ObjectType.LABEL );
-			refMenu.add(action6);
+			if(!DataNodeType.byName(dnType).equals(ObjectType.LABEL)) {
+				DataNodeToLabel action6 = new DataNodeToLabel((Graphics)e, ObjectType.LABEL);
+				refMenu.add(action6);
+			}
+//			DataNodeToLabel action7 = new DataNodeToLabel((Graphics)e, ObjectType.LABEL );
+//			refMenu.add(action7);
 			menu.add(refMenu);
+			
 		}
 	}
-
 }
